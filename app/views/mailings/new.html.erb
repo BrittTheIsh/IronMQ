@@ -1,0 +1,17 @@
+<h2>New Mailing</h2>
+<%= form_for @mailing do |f| %>
+  <%= f.label :to %>
+  <%= f.text_field :to %>
+  <br />
+  
+  <%= f.label :subject %>
+  <%= f.text_field :subject %>
+  <br />
+  
+  <%= f.label :body %>
+  <%= f.text_area :body %>
+  <br />
+  
+  <%= f.submit :send %>
+  
+<% end %>

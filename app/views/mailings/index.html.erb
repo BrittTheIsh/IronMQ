@@ -1,0 +1,10 @@
+<h2>All Mailings</h2>
+<ul>
+  <% @mailings.each do |mail| %>
+  <li>
+    <strong><%= mail.to %></strong>
+    <br />
+    <p><%= mail.subject %></p>
+  </li>
+  <% end %>
+</ul>
