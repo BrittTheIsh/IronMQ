@@ -11,7 +11,7 @@ class MailingsController < ApplicationController
     @mailing = Mailing.new( params[:mailing] )
     if @mailing.valid?
        @mailing.save
-       Messages.email(@mailing).deliver
+       system "rake send_mailing MAIL_ID=#{@mailing.id} &"
     end
     respond_with( @mailing )
   end
