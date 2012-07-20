@@ -16,6 +16,11 @@ class MailingsController < ApplicationController
     respond_with( @mailing )
   end
   
+  def show
+    @mailing = Mailing.find params[:id]
+    respond_with @mailing
+  end
+  
   def index
     @mailings = Mailing.all
     respond_with( @mailings )
