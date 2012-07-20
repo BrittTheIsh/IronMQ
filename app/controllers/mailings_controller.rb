@@ -11,7 +11,9 @@ class MailingsController < ApplicationController
     @mailing = Mailing.new( params[:mailing] )
     if @mailing.valid?
        @mailing.save
-       system "rake send_mailing MAIL_ID=#{@mailing.id} &"
+       @queue = IRON_MQ.queue("mailings")
+       @queue.post(@mailing.id.to_s)
+       system "rake send_mailing &"
     end
     respond_with( @mailing )
   end

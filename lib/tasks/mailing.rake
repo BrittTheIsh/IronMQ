@@ -1,5 +1,6 @@
 desc "Send mail"
 task :send_mailing => :environment do
-  mailing = Mailing.find(ENV["MAIL_ID"])
+  @queue = IRON_MQ.queue("mailings")
+  mailing = Mailing.find(@queue.get)
   Messages.email(mailing).deliver
 end
