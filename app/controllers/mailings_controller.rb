@@ -11,7 +11,7 @@ class MailingsController < ApplicationController
     @mailing = Mailing.new( params[:mailing] )
     if @mailing.valid?
        @mailing.save
-       Messages.email(@mailing)
+       Messages.email(@mailing).deliver
     end
     respond_with( @mailing )
   end
