@@ -1,4 +1,4 @@
 IRON_MQ = IronMQ::Client.new(
-   token:        EY::Config.get(:iron_mq, 'IRON_WORKER_TOKEN'),
-   project_id:   EY::Config.get(:iron_mq, 'IRON_WORKER_PROJECT_ID')
+   token:        EY::Config.get(:iron_mq, 'IRON_MQ_TOKEN' )
+   project_id:   EY::Config.get(:iron_mq, 'IRON_MQ_PROJECT_ID' )
 )
